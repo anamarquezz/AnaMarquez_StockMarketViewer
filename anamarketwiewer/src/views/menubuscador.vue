@@ -7,24 +7,38 @@
                     <v-text-field v-model="search" solo label="" append-icon="search" class="m-2"></v-text-field>
                 </v-flex>
             </v-layout>
-        </v-container>
-
-        <v-container class="grey lighten-4">
-            <v-layout row fill-height >                         
-                    <v-bottom-nav :active.sync="bottomNav" :value="true" >
-                        <v-btn  color="teal" flat  value="recent">
-                            TOP GAIN COMPANIES                     
-                        </v-btn>
-                        <v-btn color="teal" flat value="favorites">
-                            TOP MOST ACTIVE COMPANIES                        
-                        </v-btn>
-
-                       
-                    </v-bottom-nav>
-                
-
-            </v-layout>
-        </v-container>
+        </v-container>         
+        <v-item-group  class="grey lighten-4 "> 
+            <v-container grid-list-md full>
+                <v-layout>   
+                    <v-flex  xs6>
+                        <v-item>
+                            <v-card slot-scope="{ active, toggle }" :color="active ? 'color_2a2a3f' : 'transparent'"
+                                class="d-flex align-center w-100"  dark height="50" @click="toggle">
+                                <v-scroll-y-transition>
+                                    <div v-if="active" class="">
+                                        TOP GAIN COMPANIES
+                                    </div>
+                                </v-scroll-y-transition>
+                            </v-card>
+                        </v-item>
+                    </v-flex>
+                    <v-flex  xs6>
+                        <v-item>
+                            <v-card slot-scope="{ active, toggle }" :color="active ? 'color_2a2a3f' : 'transparent'"
+                                class="d-flex align-center w-100" dark height="50" @click="toggle">
+                                <v-scroll-y-transition>
+                                    <div v-if="active" class="">
+                                        TOP MOST ACTIVE COMPANIES
+                                    </div>
+                                </v-scroll-y-transition>
+                            </v-card>
+                        </v-item>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-item-group>
+       
     </div>
 </template>
 <script>
@@ -51,8 +65,8 @@
     .v-text-field.v-text-field--solo .v-input__control {
         min-height: 35px !important;
     }
+
     .v-item-group.v-bottom-nav--absolute {
         position: inherit !important;
     }
-
 </style>
