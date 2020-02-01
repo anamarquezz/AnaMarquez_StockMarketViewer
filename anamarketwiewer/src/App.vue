@@ -1,30 +1,16 @@
 <template>
   <v-app>
-    <v-container fluid>
-      <v-layout row fill-height>
-        <v-flex xs3 class="color_2a2a3f">
-          <sidebarCompanty></sidebarCompanty>
-        </v-flex>
-        <v-flex xs4 class="yellow">
-          <menubuscador></menubuscador>
-        </v-flex>
-        <v-flex xs5 class="blue">
-          <sidebarCompanty></sidebarCompanty>
-        </v-flex>
-      </v-layout>
-    </v-container>
+<principal></principal>
   </v-app>
 
 
 </template>
 
 <script>
-  import sidebarCompanty from '@/views/siderbarcompany'
-  import menubuscador from '@/views/menubuscador'
+  import principal from '@/views/principal'
   export default {
     components: {
-      sidebarCompanty,
-      menubuscador
+      principal
     }
   }
 </script>
