@@ -1,27 +1,33 @@
 <template>
     <div>
-   
-        <v-item-group class="grey lighten-4 ">
+        <v-item-group class="text-center">
             <v-layout>
-                <v-flex xs6x>
-                    <v-item>                    
-                        <v-card slot-scope="{ active, toggle }" :color="active ? 'color_2a2a3f' : 'transparent'"
-                            class="d-flex align-center w-100 black---text" dark height="50" @click="toggle">
+                <v-flex xs6x class="">
+                    <v-item>
+                        <v-card  slot-scope="{ active, toggle }" :color="active ? 'bcolor_bfbfbf' : 'grey lighten-4'"
+                            class="d-flex align-center w-100 black---text " dark height="50" @click="toggle">
                             <v-scroll-y-transition>
-                                <div v-if="active" class="">
+                                <div v-if="active">
+                                    TOP GAIN COMPANIES
+                                </div>
+                                <div v-else class="black--text ml-1">
                                     TOP GAIN COMPANIES
                                 </div>
                             </v-scroll-y-transition>
                         </v-card>
                     </v-item>
                 </v-flex>
-                <v-flex xs6>
+                <v-flex xs6 class="mr-n3">
                     <v-item>
-                        <v-card slot-scope="{ active, toggle }" :color="active ? 'color_2a2a3f' : 'transparent'"
-                            class="d-flex align-center w-100 black---text border-button-c" dark height="50" @click="toggle">
+                        <v-card  slot-scope="{ active, toggle }" :color="active ? 'bcolor_2a2a3f' : 'grey lighten-4'"
+                            class="d-flex align-center w-100 black---text border-button-c ml-n3" dark height="50"
+                            @click="toggle">
                             <v-scroll-y-transition>
                                 <div v-if="active" class="">
-                                    TOP GAIN COMPANIES
+                                    TOP MOST ACTIVE COMPANIES
+                                </div>
+                                <div v-else class="black--text ml-1">
+                                    TOP MOST ACTIVE COMPANIES
                                 </div>
                             </v-scroll-y-transition>
                         </v-card>
@@ -41,7 +47,8 @@
         },
         data() {
             return {
-                search: ''
+                search: '',
+               
             }
         },
         methods: {
@@ -61,7 +68,8 @@
     .v-item-group.v-bottom-nav--absolute {
         position: inherit !important;
     }
-    .border-button-c{
-            border-radius: 0px 0px 0px 19px !important;
+
+    .border-button-c {
+        border-radius: 0px 0px 0px 19px !important;
     }
 </style>

@@ -1,18 +1,12 @@
 <template>
   <v-app>
-<principal></principal>
+ <router-view />
   </v-app>
 
 
 </template>
 
-<script>
-  import principal from '@/views/principal'
-  export default {
-    components: {
-      principal
-    }
-  }
+<script> 
 </script>
 
 <style>
