@@ -41,7 +41,7 @@
 </template>
 <script>
     export default {
-        name: 'menubuscador',
+        name: 'menuop',
         components: {
 
         },

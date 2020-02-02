@@ -6,7 +6,7 @@
       </v-flex>
       <v-flex xs3 lg3 class="grey lighten-5">
         <searchbar></searchbar>
-        <menubuscador></menubuscador>
+        <menuop></menuop>
         <listmenu></listmenu>
       </v-flex>
       <v-flex xs6 class="grey lighten-4">
@@ -20,7 +20,7 @@
 <script>
   import sidebarCompany from '@/components/siderbarcompany'
   import sidebarData from '@/components/sidebar_data'
-  import menubuscador from '@/components/menubuscador'
+  import menuop from '@/components/menuop'
   import searchbar from '@/components/searchbar'
   import listmenu from '@/components/listmenu'
   import {
@@ -31,7 +31,7 @@
     components: {
       sidebarCompany,
       sidebarData,
-      menubuscador,
+      menuop,
       searchbar,
       listmenu
     },
