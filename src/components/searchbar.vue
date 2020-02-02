@@ -41,7 +41,7 @@
                 }
                 function new_filter(val, newvalue) {
                     return val !== null && ['undefined', 'boolean'].indexOf(typeof val) === -1 &&
-                        val.toString().toLowerCase().replace(/[^0-9a-zA-Z]+/g, " ").indexOf(newvalue) !== -1
+                        val.toString().toLowerCase().replace(/[^0-9a-zA-Z&]+/g, " ").indexOf(newvalue) !== -1
                 }
                 let needleAry = newvalue.toString().toLowerCase().split(",").filter(x => x);
 
