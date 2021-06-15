@@ -3,7 +3,7 @@
         <v-layout row fill-height>
             <v-flex xs12 class=" ">
                 <p class="mt-3 ml-2 white--text">Search companies by symbol.</p>
-                <v-text-field v-model="search" solo label="" append-icon="search" class="m-2"></v-text-field>
+                <v-text-field id="textSearch" v-model="search" solo label="" :append-icon="icon"  :append-icon-cb="clearText" class="m-2"></v-text-field>
             </v-flex>
         </v-layout>
     </v-container>
@@ -20,24 +20,35 @@
         computed: {
             search: {
                 get() {
-                    return this.$store.getters.g_search;
+                    var esto = this;
+                    var value = esto.$store.getters.g_search.title;
+                    esto.icon = value == undefined != ''? 'search' : 'close' ;
+                    return value;
                 },
-                set(newValue) {
+                set(newValue) {              
+                    this.icon = newValue  == ''? 'search' : 'close' ;  
+                  
                     this.customFilter(newValue);
                 }
             },
              ...mapState({
-                search_item: 'search_item',
+               
                 items:'items'             
             }),
         },
         data() {
-            return {}
+            return {
+                icon:'search',
+                
+            }
         },
         methods: {
-            customFilter(newvalue) {               
+            customFilter(newvalue) {     
+
+                        
                 if (!newvalue) {                    
                      this.$store.dispatch('ACTION_SEARCH', this.items);
+
                 }
                 function new_filter(val, newvalue) {
                     return val !== null && ['undefined', 'boolean'].indexOf(typeof val) === -1 &&
@@ -46,13 +57,18 @@
                 let needleAry = newvalue.toString().toLowerCase().split(",").filter(x => x);
 
                 var searchItems = this.items.filter(row => needleAry.every(needle => Object.keys(row).some(key => new_filter(row[key],
-                    needle))));
+                    needle))));                                  
                 this.$store.dispatch('ACTION_SEARCH', searchItems);
-                
-               
-
-
             },
+            clearText (){               
+                    this.icon = 'search';                
+                    this.$store.dispatch('ACTION_SEARCH', this.items);     
+                    this.$store.dispatch('ACTION_SELECTED_ITEM', '');
+                    this.$store.dispatch("ACTION_SET_ISSELECTED",false);
+                    
+
+            }
+            
 
         }
     }

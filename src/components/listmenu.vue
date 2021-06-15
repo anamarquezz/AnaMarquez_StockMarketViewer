@@ -3,10 +3,12 @@
         <v-layout row>
             <v-flex xs12>
                 <v-list two-line>
+                    <div style="display:none">{{search}}</div>
                     <template v-for="(item, index) in search_item">
+                      
 
-                        <v-list-tile v-if="!show && isMobile && selected.indexOf(index) != -1 ? true:false"
-                            :key="item.title" ripple class="elevation">
+                        <v-list-tile v-if="!show && isMobile "
+                            :key="item.action" ripple class="elevation">
                             <v-list-tile-action v-if="selected.indexOf(index) != -1" class="ml-n3">
                                 <div class="bcolor_efcd60 h-100 w-50 inline">
 
@@ -34,7 +36,7 @@
                         </v-list-tile>
 
 
-                        <v-list-tile v-if="show" :key="item.title" avatar ripple @click="selected_item(index,item)"
+                        <v-list-tile v-if="show" :key="item.action" avatar ripple @click="selected_item(index,item)"
                             class="elevation">
                             <v-list-tile-action v-if="selected.indexOf(index) != -1" class="ml-n3">
                                 <div class="bcolor_efcd60 h-100 w-50 inline">
@@ -69,15 +71,29 @@
     } from 'vuex';
     export default {
         computed: {
+            search: {
+                get() {
+                    var esto = this;
+                    var value = esto.$store.getters.g_search.title;     
+                    if(value == undefined ){
+                        esto.show = true;
+                        esto.selected = [];
+                        esto.$store.dispatch("ACTION_SET_ISSELECTED",false);
+                    }
+                          
+                    return value;
+                },
+            },
             ...mapState({
                 search_item: 'search_item',
+                selected_items:'selected_items',
                 items: 'items' ,                
             }),
              
         },
         data() {
             return {
-                selected: [0],
+                selected: '',
                 isMobile: false,
                 show: true
             }

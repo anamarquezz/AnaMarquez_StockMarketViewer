@@ -785,6 +785,11 @@ export default new Vuex.Store({
     items: items,
     selected_items: ''
   },
+  getters:{
+    g_search: (state) => {
+      return state.selected_items;
+    }    
+  },
   mutations: {
     SET_SEARCHVALUE: (state, value) => {
       state.search = value;

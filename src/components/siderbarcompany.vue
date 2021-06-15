@@ -1,7 +1,7 @@
 <template>
     <v-layout column align-center justify-center fill-height class="white--text" v-resize="onResize">
-        <img v-if="!isMobile" src="@/assets/img/Asset_Logo_vertical.svg" alt="triangle with all three sides equal" width="300" />
-        <img v-else src="@/assets/img/Asset_Logo_Horizontal.svg" alt="triangle with all three sides equal" width="300" height="200" />
+        <img v-if="!isMobile" class="img-vertical" src="@/assets/img/Asset_Logo_vertical.svg" alt="" width="300" />
+        <img v-else class="img-horizontal" src="@/assets/img/Asset_Logo_Horizontal.svg" alt="" width="300" height="200" />
     </v-layout>
 
 </template>
@@ -22,3 +22,14 @@
         },
     }
 </script>
+<style scoped>
+.img-vertical {
+    display: flex;
+    height: 100vh;
+}
+
+.img-horizontal {
+    display: flex;
+    height: 15vh !important;
+}
+</style>
